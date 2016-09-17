@@ -13,6 +13,7 @@ php:
         - ./code:/code
     links:
         - mariadb
+        - redis
 mariadb:
   image: mariadb:latest
   ports:
@@ -24,3 +25,5 @@ mariadb:
     - MYSQL_USER=trafficlink
     - MYSQL_PASSWORD=trafficlink
     - MYSQL_DATABASE=trafficlink
+redis:
+  image: redis:latest
