@@ -5,13 +5,13 @@ return [
         'invokables' => [
         ],
         'factories' => [
-            \App\Command\SetupCommand::class => \App\Command\SetupCommandFactory::class,
+            \App\Command\UpdateCommand::class => \App\Command\UpdateCommandFactory::class,
         ],
     ],
 
     'console' => [
         'commands' => [
-            \App\Command\SetupCommand::class,
+            \App\Command\UpdateCommand::class,
         ],
     ],
 ];

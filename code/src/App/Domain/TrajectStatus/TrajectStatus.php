@@ -46,4 +46,92 @@ class TrajectStatus
      * @\Doctrine\ORM\Mapping\Column(type="datetime")
      */
     protected $measuredAt;
+
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return Traject
+     */
+    public function getTraject()
+    {
+        return $this->traject;
+    }
+
+    /**
+     * @param Traject $traject
+     *
+     * @return self
+     */
+    public function setTraject($traject)
+    {
+        $this->traject = $traject;
+
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getVelocity()
+    {
+        return $this->velocity;
+    }
+
+    /**
+     * @param int $velocity
+     *
+     * @return self
+     */
+    public function setVelocity($velocity)
+    {
+        $this->velocity = $velocity;
+
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getTraveltime()
+    {
+        return $this->traveltime;
+    }
+
+    /**
+     * @param int $traveltime
+     *
+     * @return self
+     */
+    public function setTraveltime($traveltime)
+    {
+        $this->traveltime = $traveltime;
+
+        return $this;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getMeasuredAt()
+    {
+        return $this->measuredAt;
+    }
+
+    /**
+     * @param \DateTime $measuredAt
+     *
+     * @return self
+     */
+    public function setMeasuredAt($measuredAt)
+    {
+        $this->measuredAt = $measuredAt;
+
+        return $this;
+    }
 }
