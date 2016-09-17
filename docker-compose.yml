@@ -12,18 +12,15 @@ php:
     volumes:
         - ./code:/code
     links:
-        - rest
-datomicdb:
-  build: datomic-pro-transactor
+        - mariadb
+mariadb:
+  image: mariadb:latest
   ports:
-    - "4336:4336"
-    - "4335:4335"
-    - "4334:4334"
+    - "3307:3306"
   volumes:
-    - "./data:/data"
-rest:
-  build: datomic-pro-rest
-  ports:
-    - "8001:8001"
-  links:
-    - datomicdb
+    - "./data:/var/lib/mysql"
+  environment:
+    - MYSQL_RANDOM_ROOT_PASSWORD=1
+    - MYSQL_USER=trafficlink
+    - MYSQL_PASSWORD=trafficlink
+    - MYSQL_DATABASE=trafficlink
