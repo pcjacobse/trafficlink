@@ -22,3 +22,8 @@ cp code/config/autoload/errorhandler.php.dist code/config/autoload/errorhandler.
 ###### Remarks
 
 *This application was made in assignment for YourSurprise*
+
+###### References sources
+- Zend Expressive CLI setup <https://xtreamwayz.com/blog/2016-02-07-zend-expressive-console-cli-commands>
+- Monolog intergration <https://github.com/Orasik/monolog-middleware>
+- Doctrine setup <https://xtreamwayz.com/blog/2015-12-12-setup-doctrine-for-zend-expressive>
