@@ -8,4 +8,5 @@ php composer.phar install
 php vendor/bin/doctrine-migrations migrations:migrate -n
 popd
 
+supervisord
 php-fpm

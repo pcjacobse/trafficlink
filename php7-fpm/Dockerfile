@@ -33,8 +33,17 @@ RUN apt-get -y install zip unzip
 # install PHP PEAR extensions 
 RUN apt-get -y install wget
 
+# install Cron
+RUN apt-get -y install supervisor cron
+
 # Clean up APT when done.
-RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+RUN apt-get autoremove \
+    && apt-get autoclean \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+ADD supervisord.conf /etc/supervisor/conf.d/cron.conf
+ADD crontab /etc/cron.d/update
 
 ADD setup.sh /
 RUN chmod +x /setup.sh

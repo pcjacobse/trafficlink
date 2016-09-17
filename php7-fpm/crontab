@@ -1,0 +1,1 @@
+*/5 * * * * root /usr/local/bin/php /code/console.php update >> /var/log/cron.log 2>&1
