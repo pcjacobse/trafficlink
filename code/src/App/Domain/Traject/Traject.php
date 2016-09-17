@@ -12,11 +12,10 @@ use App\Domain\TrajectStatus\TrajectStatus;
 class Traject
 {
     /**
-     * @var integer
+     * @var string
      *
      * @\Doctrine\ORM\Mapping\Id
-     * @\Doctrine\ORM\Mapping\GeneratedValue
-     * @\Doctrine\ORM\Mapping\Column(type="integer")
+     * @\Doctrine\ORM\Mapping\Column(type="string", length=255)
      */
     protected $id;
 
