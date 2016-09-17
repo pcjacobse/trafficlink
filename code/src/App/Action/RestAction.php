@@ -27,8 +27,8 @@ class RestAction
             $geometry = [];
             foreach ($traject->getGeometryPoints() as $geometryPoint) {
                 $geometry[] = [
-                    'latitude'  => $geometryPoint->getLatitude(),
-                    'longitude' => $geometryPoint->getLongitude(),
+                    'lat'  => $geometryPoint->getLatitude(),
+                    'lng' => $geometryPoint->getLongitude(),
                 ];
             }
 
