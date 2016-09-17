@@ -129,8 +129,8 @@ class UpdateCommand extends Command
         */
 
         $status->setMeasuredAt(new \DateTime());
-        // lets pick a random speed between 20 kmph and 100 kmph
-        $velocity = rand(20, 100);
+        // lets pick a random speed between 5 kmph and 50 kmph
+        $velocity = rand(5, 50);
         // for sanity's sake, lets calculate the 'real' traveltime
         $traveltime = round($traject->getLength() / ($velocity / 3.6));
 

@@ -1,0 +1,22 @@
+body {
+    padding-top: 60px;
+}
+
+.app {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.app-content {
+    flex: 1;
+}
+
+.app-footer {
+    text-align: center;
+    padding-bottom: 1em;
+}
+
+.map {
+    height: 700px;
+}

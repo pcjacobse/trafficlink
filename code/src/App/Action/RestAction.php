@@ -48,6 +48,6 @@ class RestAction
             ];
         }
 
-        return new JsonResponse($data);
+        return new JsonResponse($data, 200, [], JsonResponse::DEFAULT_JSON_FLAGS | JSON_NUMERIC_CHECK);
     }
 }
