@@ -26,4 +26,9 @@ RUN apt-get -y install wget
 # Clean up APT when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+ADD setup.sh /
+RUN chmod +x /setup.sh
+
 EXPOSE 9000
+
+CMD ["/setup.sh"]
