@@ -20,7 +20,8 @@ return [
             Application::class => ApplicationFactory::class,
             Helper\UrlHelper::class => Helper\UrlHelperFactory::class,
             \Monolog\Logger::class => \App\Monolog\Factory\MonologFactory::class,
-            \taywils\Patomic\Patomic::class => \App\Patomic\Factory\PatomicFactory::class,
+            Doctrine\Common\Cache\Cache::class => App\Container\DoctrineRedisCacheFactory::class,
+            Doctrine\ORM\EntityManager::class  => App\Container\DoctrineFactory::class,
         ],
     ],
 ];

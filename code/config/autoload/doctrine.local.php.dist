@@ -1,0 +1,30 @@
+<?php
+
+return [
+    'doctrine' => [
+        'orm'        => [
+            'auto_generate_proxy_classes' => false,
+            'proxy_dir'                   => 'data/cache/EntityProxy',
+            'proxy_namespace'             => 'EntityProxy',
+            'underscore_naming_strategy'  => true,
+        ],
+        'connection' => [
+            // default connection
+            'orm_default' => [
+                'driver'   => 'pdo_mysql',
+                'host'     => 'mariadb',
+                'port'     => '3306',
+                'dbname'   => 'trafficlink',
+                'user'     => 'trafficlink',
+                'password' => 'trafficlink',
+                'charset'  => 'UTF8',
+            ],
+        ],
+        'cache'      => [
+            'redis' => [
+                'host' => 'redis',
+                'port' => '6379',
+            ],
+        ],
+    ],
+];
