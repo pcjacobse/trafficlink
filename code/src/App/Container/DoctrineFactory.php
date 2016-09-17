@@ -47,11 +47,13 @@ class DoctrineFactory
         );
         $doctrine->setMetadataDriverImpl($driver);
 
-        // Cache
-        $cache = $container->get(Cache::class);
-        $doctrine->setQueryCacheImpl($cache);
-        $doctrine->setResultCacheImpl($cache);
-        $doctrine->setMetadataCacheImpl($cache);
+        if(isset($config['doctrine']['cache'])) {
+            // Cache
+            $cache = $container->get(Cache::class);
+            $doctrine->setQueryCacheImpl($cache);
+            $doctrine->setResultCacheImpl($cache);
+            $doctrine->setMetadataCacheImpl($cache);
+        }
 
         // EntityManager
         return EntityManager::create($config['doctrine']['connection']['orm_default'], $doctrine);
