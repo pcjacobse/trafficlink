@@ -45,6 +45,8 @@ RUN apt-get autoremove \
 ADD supervisord.conf /etc/supervisor/conf.d/cron.conf
 ADD crontab /etc/cron.d/update
 
+RUN echo 'date.timezone = "Europe/Amsterdam"' > /usr/local/etc/php/conf.d/time.ini
+
 ADD setup.sh /
 RUN chmod +x /setup.sh
 
