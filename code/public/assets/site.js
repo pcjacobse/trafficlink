@@ -37,20 +37,29 @@
             }).join('');
     };
 
-    var sliderVal = 0,
-        trajects = [],
+    var currentStep = 0,
+		stepTime,
+		trajects = [],
         trajectStrokes = [];
 
-    var updateTrajectColor = function() {
+    var updateTrajectColor = function(step) {
+		var time;
         for(var offset in trajects) {
-            // just basic calculation based on traveltime
-            var val = Math.min(100, trajects[offset].statuses[sliderVal].traveltime / 10);
+            // just basic calculation based on traveltime, average seems to be aroung 1500 for the longest route.
+            // However, it is all random at the moment, so good calculation is not included
+            var val = Math.min(100, trajects[offset].statuses[step].traveltime / 15);
+			// convert to hue
             var h= Math.floor((100 - val) * 120 / 100);
-            var s = 0.7;
-            var v = 1;
 
-            trajectStrokes[offset].setOptions({strokeColor: hsv2rgb(h,s,v)})
+			// update the matching stroke with the new color
+            trajectStrokes[offset].setOptions({strokeColor: hsv2rgb(h, 0.7, 1)});
+
+			// get the time of the status
+			// I know, the time isn't always the same for all trajects, but should be close enough to ignore
+			time = moment(trajects[offset].statuses[step].measuredAt);
         }
+
+		return time;
     };
 
     var initMap = function () {
@@ -77,7 +86,32 @@
                 trajectStrokes.push(trajectStroke);
                 trajectStroke.setMap(map);
             }
-            updateTrajectColor();
+			stepTime = updateTrajectColor(0);
+
+			// create the slider
+			var slider = $(document.createElement('input')).attr('type', 'hidden');
+			$('.map').after(slider);
+			var ticks = [];
+			var max = data[0].statuses.length - 1;
+			for (var i = 0; i <= max; i++) {
+				ticks.push(i);
+			}
+			slider.slider({
+				min: 0,
+				max: max,
+				step: 1,
+				value: 0,
+				reversed : true,
+				tooltip: 'always',
+				ticks: ticks,
+				formatter: function(value) {
+					if(currentStep != value) {
+						stepTime = updateTrajectColor(value);
+						currentStep = value;
+					}
+					return stepTime.format('HH:mm');
+				}
+			});
         });
     };
     window.initMap = initMap;

@@ -20,3 +20,22 @@ body {
 .map {
     height: 700px;
 }
+
+.slider.slider-horizontal {
+    width: 80%;
+    left: 10%;
+    margin-top: -75px;
+}
+
+.slider-tick {
+    opacity: 1;
+}
+
+.slider-tick.in-selection {
+    background-image: -webkit-linear-gradient(top,#f9f9f9 0,#f5f5f5 100%);
+    background-image: -o-linear-gradient(top,#f9f9f9 0,#f5f5f5 100%);
+    background-image: linear-gradient(to bottom,#f9f9f9 0,#f5f5f5 100%);
+}
+.slider-selection.tick-slider-selection {
+    display: none;
+}

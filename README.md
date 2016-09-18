@@ -4,7 +4,7 @@ A simple application to visualise trafficlink data.
 
 The application collects trafficlink data from <http://www.trafficlink-online.nl/trafficlinkdata/wegdata/TrajectSensorsNH.GeoJSON> every 5 minutes.
 
-To view the visualised data goto <http://localhost:8082/> or if deployed remotely <http://remoteserver:8082/>
+To view the visualised data go to <http://localhost:8082/> or if deployed remotely <http://remoteserver:8082/>
 
 ### Setup
 
@@ -28,3 +28,4 @@ cp code/config/autoload/errorhandler.php.dist code/config/autoload/errorhandler.
 - Monolog intergration <https://github.com/Orasik/monolog-middleware>
 - Doctrine setup <https://xtreamwayz.com/blog/2015-12-12-setup-doctrine-for-zend-expressive>
 - RD Coordinate conversion <http://thomasv.nl/2014/03/rd-naar-gps/>
+- Simple slider for bootstrap <https://github.com/seiyria/bootstrap-slider>
